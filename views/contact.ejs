@@ -1,0 +1,48 @@
+<style>
+
+</style>
+
+<div class="page-header">
+    <h1><%= title %></h1>
+</div>
+
+<div class="page-body">
+    <section>
+        <div class="section-header">
+            <h3>Message Us</h3>
+        </div>
+        <div class="section-body">
+            <form class="contact-form" action="/contact/message" method="post">
+                <div class="input-group">
+                    <label for="sender">Your Name:</label>
+                    <input type="text" name="sender" id="sender" placeholder="Name">
+                </div>
+                <div class="input-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" id="subject" placeholder="Subject">
+                </div>
+                <div class="input-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" placeholder="Message..."></textarea>
+                </div>
+                <div class="input-group"><button type="submit" disabled>Send</button></div>
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h3>Email Us</h3>
+        </div>
+        <div class="section-body">
+            <div class="section-body-link">
+                <a href="mailto:service@justusconsulting.com">@ - service@justusconsulting.com</a>
+            </div>
+            <div class="section-body-link">
+                <a href="tel:1234567890">P - (123)456-7890</a>
+            </div>
+        </div>
+    </section>
+
+
+</div>

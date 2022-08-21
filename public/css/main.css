@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: QuantumFH;
+    src: url('../fonts/quantfh.ttf');
+}
+@font-face {
+    font-family: Titillium;
+    src: url('../fonts/TitilliumWeb-Regular.ttf');
+}
+
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: 'Titillium';
+}
+
+input, input::placeholder, textarea, textarea::placeholder {
+    font-family: 'Titillium';
+
+}
+
+.page-header {
+    padding: 8px;
+    margin-bottom: 30px;
+}
+.page-header h1 {
+    font-family: 'QuantumFH';
+    color: lightskyblue;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    font-weight: lighter;
+    text-shadow: 0 -3px 3px rgba(255, 255, 255, 0.5);
+}
+
+
+section {
+
+}
+.section-header {
+
+}
+
+.section-header h3 {
+    color: #fff;
+    font-weight: lighter;
+    text-align: center;
+    padding: 8px;
+    font-size: 1.5rem;
+    text-shadow: 0 0 2px #000;
+}
+
+.section-body {
+    padding: 8px;
+}
+
+.section-body a {
+    color: lightskyblue;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    max-width: 500px;
+    margin-inline: auto;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.input-group label {
+    width: 30%;
+    text-align: right;
+    padding-right: 10px;
+}
+.input-group input, .input-group textarea {
+    width: 70%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: #222;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: 3px 3px 6px #333, -3px -3px 6px #000;
+}
+.input-group input::placeholder, .input-group textarea::placeholder {
+    color: #fff;
+}
+.input-group input {
+
+}
+.input-group textarea {
+    height: 150px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+.input-group button {
+    background-color: lightskyblue;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    margin-inline: auto;
+    width: 50%;
+    max-width: 200px;
+}
