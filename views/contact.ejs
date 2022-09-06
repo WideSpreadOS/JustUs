@@ -1,5 +1,57 @@
 <style>
+    #confirmMessageEl {
+        background-color: #222;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99990;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 50px;
+        height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 100px;
+    }
 
+    .email-confirm-text {
+        border-bottom: solid 1px lightskyblue;
+        width: 90%;
+        padding: 8px;
+        font-size: 1.5rem;
+    }
+
+    .email-confirm-label {
+        color: lightskyblue;
+        font-weight: bold;
+    }
+    #confirmSend {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        background-color: lightskyblue;
+        width: 100vw;
+        height: 100px;
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #closeConfirmBtn {
+        color: red;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 99999;
+        font-size: 2rem;
+    }
 </style>
 
 <div class="page-header">
@@ -15,20 +67,37 @@
             <form class="contact-form" action="/contact/message" method="post">
                 <div class="input-group">
                     <label for="sender">Your Name:</label>
-                    <input type="text" name="sender" id="sender" placeholder="Name">
+                    <input type="text" name="sender" id="sender" onkeyup="updateName()" placeholder="Name">
+                    <div class="hidden" id="updatedSender"></div>
                 </div>
                 <div class="input-group">
                     <label for="subject">Subject:</label>
-                    <input type="text" name="subject" id="subject" placeholder="Subject">
+                    <input type="text" name="subject" id="subject" onkeyup="updateSubject()" placeholder="Subject">
+                    <div class="hidden" id="updatedSubject"></div>
                 </div>
                 <div class="input-group">
                     <label for="message">Message:</label>
-                    <textarea name="message" id="message" placeholder="Message..."></textarea>
+                    <textarea name="message" id="message" onkeyup="updateMessage()" placeholder="Message..."></textarea>
+                    <div class="hidden" id="updatedMessage"></div>
                 </div>
-                <div class="input-group"><button type="submit" disabled>Send</button></div>
+                <div class="input-group">
+                    <p id="sendBtn">Send</p>
+                </div>                
             </form>
         </div>
     </section>
+
+    <section>
+        <div class="section-header">
+            <h3>Email Us</h3>
+        </div>
+        <div class="section-body">
+<a href="mailto:abc@example.com?subject=Feedback&body=Message">
+    Send Feedback
+</a>
+        </div>
+    </section>
+
 
     <section>
         <div class="section-header">
@@ -44,5 +113,92 @@
         </div>
     </section>
 
-
+    
 </div>
+
+<div id="confirmMessageEl">
+    <div id="closeConfirmBtn">
+        <i class="bx bx-x"></i>
+    </div>
+    <div class="email-confirm-text">
+        <span class="email-confirm-label">From: </span><span id="confirmSender"></span>
+    </div>
+    <div class="email-confirm-text">
+        <span class="email-confirm-label">Subject: </span><span id="confirmSubject"></span>
+    </div>
+    <div class="email-confirm-text">
+        <span class="email-confirm-label">Message: </span><div id="confirmMessage"></div>
+    </div>
+    <a id="confirmSend">Send</a>
+</div>
+
+
+<script>
+    const sender = document.getElementById('sender')
+    const subject = document.getElementById('subject')
+    const message = document.getElementById('message')
+    
+
+    
+    const sendBtn = document.getElementById('sendBtn')
+
+
+
+    function updateName() {
+            let updatedEmail = sender.value;
+            document.getElementById("updatedSender").innerHTML = updatedEmail;
+
+        }
+
+    function updateSubject() {
+            let updatedSubject = subject.value;
+            document.getElementById("updatedSubject").innerHTML = updatedSubject;
+
+        }
+    function updateMessage() {
+            let updatedMessage = message.value;
+            document.getElementById("updatedMessage").innerHTML = updatedMessage;
+        }
+
+    sendBtn.addEventListener('click', e => {
+        const updatedSenderEl = document.getElementById('updatedSender').innerText
+        const updatedSubjectEl = document.getElementById('updatedSubject').innerText
+        const updatedMessageEl = document.getElementById('updatedMessage').innerText
+        console.log('Sender: ', updatedSenderEl)
+        console.log('Subject: ', updatedSubjectEl)
+        console.log('Message: ', updatedMessageEl)
+
+        const dynamicHref = `mailto:widespread.main@gmail.com?subject=From ${updatedSenderEl} - ${updatedSubjectEl}&body=${updatedMessageEl}`
+        sendMessage(updatedSenderEl, updatedSubjectEl, updatedMessageEl, dynamicHref)
+    })
+    
+    function sendMessage(sender, subject, message, link) {
+        console.log('INSIDE sendMessage()')
+        console.log('message: ')
+        console.log(link)
+
+
+
+        const confirmSender = document.getElementById('confirmSender')
+        const confirmSubject = document.getElementById('confirmSubject')
+        const confirmMessage = document.getElementById('confirmMessage')
+        const confirmSend = document.getElementById('confirmSend')
+        const confirmMessageEl = document.getElementById('confirmMessageEl')
+        const closeConfirmBtn = document.getElementById('closeConfirmBtn')
+
+        confirmMessageEl.style.display = 'flex'
+
+        confirmSender.innerText = sender
+        confirmSubject.innerText = subject
+        confirmMessage.innerText = message
+
+        let readyEmailBtn = document.createElement('a')
+        confirmSend.setAttribute('href', link)
+        }
+
+        closeConfirmBtn.addEventListener('click', e => {
+            confirmMessageEl.style.display = 'none'
+        })
+
+    
+</script>

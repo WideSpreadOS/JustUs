@@ -22,7 +22,9 @@ input, input::placeholder, textarea, textarea::placeholder {
     font-family: 'Titillium';
 
 }
-
+.hidden {
+    display: none;
+}
 .page-header {
     padding: 8px;
     margin-bottom: 30px;
