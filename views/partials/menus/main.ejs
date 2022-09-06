@@ -1,0 +1,98 @@
+<style>
+    #menuOpenBtn {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: solid 2px lightskyblue;
+        border-left: none;
+        border-top: none;
+        box-shadow: inset 0 0 30px rgba(135, 206, 250, 0.4);
+        font-size: 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 8px;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom-right-radius: 8px;
+    }
+    #mainMenu {
+        position: absolute;
+        background-color: #222;
+        width: 100vw;
+        top: 0;
+        left: -100vw;
+        height: 100vh;
+        transition: ease-in-out 0.75s;
+    }
+    .menu-options {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        height: 50px;
+    }
+    #closeMenuBtn {
+        font-size: 2rem;
+        margin-right: 15px;
+    }
+
+    .menu-nav {
+        height: calc(100vh - 50px);
+    }
+    .menu-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+    .menu-nav li {
+        list-style: none;
+    }
+    .menu-nav a {
+        color: #fff;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+</style>
+
+
+<div id="menuOpenBtn">
+    <i class="bx bx-menu"></i>
+</div>
+
+<div id="mainMenu">
+    <div class="menu-options">
+        <div id="closeMenuBtn">
+            <i class="bx bx-x"></i>
+        </div>
+    </div>
+    <div class="menu-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/bios">Bios</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/partners">Partners</a></li>
+        </ul>
+    </div>
+
+</div>
+
+
+<script>
+    const menuOpenBtn = document.getElementById('menuOpenBtn')
+    const closeMenuBtn = document.getElementById('closeMenuBtn')
+    const mainMenu = document.getElementById('mainMenu')
+
+
+    menuOpenBtn.addEventListener('click', e => {
+        console.log('open menu')
+        mainMenu.style.left = '0'
+    })
+    closeMenuBtn.addEventListener('click', e => {
+        console.log('open menu')
+        mainMenu.style.left = '-100vw'
+    })
+</script>
