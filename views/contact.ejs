@@ -1,14 +1,62 @@
 <style>
     #sendBtn {
+        position: absolute;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #222;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -50px;
+    }
+    #sendBtn i {
         margin-inline: auto;
         padding: 10px;
         font-size: 1.5rem;
-        width: 300px;
-        max-width: 80vw;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
         text-align: center;
-        margin-top: 15px;
-        border-radius: 12px;
         background-color: lightskyblue;
+        box-shadow: inset 2px 2px 4px rgb(204, 236, 255), inset -2px -2px 4px rgb(88, 176, 231);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #callBtn {
+        position: absolute;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #222;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -50px;
+    }
+    #callBtn i {
+        margin-inline: auto;
+        padding: 10px;
+        font-size: 1.5rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: lightskyblue;
+        box-shadow: inset 2px 2px 4px rgb(204, 236, 255), inset -2px -2px 4px rgb(88, 176, 231);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
     }
     #confirmMessageEl {
         background-color: #222;
@@ -86,22 +134,22 @@
         <div class="section-body">
             <form class="contact-form" action="/contact/message" method="post">
                 <div class="input-group">
-                    <label for="sender">Your Name:</label>
+                    <label for="sender">Your Name</label>
                     <input type="text" name="sender" id="sender" onkeyup="updateName()" placeholder="Name">
                     <div class="hidden" id="updatedSender"></div>
                 </div>
                 <div class="input-group">
-                    <label for="subject">Subject:</label>
+                    <label for="subject">Subject</label>
                     <input type="text" name="subject" id="subject" onkeyup="updateSubject()" placeholder="Subject">
                     <div class="hidden" id="updatedSubject"></div>
                 </div>
                 <div class="input-group">
-                    <label for="message">Message:</label>
+                    <label for="message">Message</label>
                     <textarea name="message" id="message" onkeyup="updateMessage()" placeholder="Message..."></textarea>
                     <div class="hidden" id="updatedMessage"></div>
                 </div>
                 <div class="input-group">
-                    <p id="sendBtn">Send</p>
+                    <p id="sendBtn"><i class="bx bx-send"></i></p>
                 </div>                
             </form>
         </div>
@@ -113,9 +161,14 @@
         <div class="section-header">
             <h3>Call Us</h3>
         </div>
+        
         <div class="section-body">
-            <div class="section-body-link">
-                <a href="tel:5406453232"><i class="bx bx-phone"></i> (540)645-3232</a>
+            <div class="section-body-link" style="text-align: right; padding-right: 15px;">
+                <a href="tel:5406453232">(540)645-3232</a>
+            </div>
+
+            <div id="callBtn">
+                <a href="tel:5406453232"><i class="bx bx-phone"></i></a>
             </div>
         </div>
     </section>

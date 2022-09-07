@@ -1,18 +1,18 @@
 <style>
     #menuOpenBtn {
         background-color: rgba(0, 0, 0, 0.5);
-        border: solid 2px lightskyblue;
-        border-left: none;
+        border: solid 1px lightskyblue;
+        border-right: none;
         border-top: none;
-        box-shadow: inset 0 0 30px rgba(135, 206, 250, 0.4);
+        box-shadow: inset 0 0 30px rgba(135, 206, 250, 0.4), -4px 4px 8px rgba(0, 0, 0, 0.4);
         font-size: 2rem;
         position: fixed;
         top: 0;
-        left: 0;
+        right: 0;
         padding: 8px;
         padding-top: 0;
         padding-bottom: 0;
-        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
     }
     #mainMenu {
         position: absolute;
@@ -22,6 +22,7 @@
         left: -100vw;
         height: 100vh;
         transition: ease-in-out 0.75s;
+        z-index: 99999;
     }
     .menu-options {
         display: flex;
@@ -34,6 +35,7 @@
     #closeMenuBtn {
         font-size: 2rem;
         margin-right: 15px;
+        color: lightskyblue;
     }
 
     .menu-nav {

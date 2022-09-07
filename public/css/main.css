@@ -12,10 +12,36 @@
     src: url('../fonts/TitilliumWeb-Regular.ttf');
 }
 
+
+
 body {
     background-color: #222;
     color: #fff;
     font-family: 'Titillium';
+}
+
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -99999;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* filter: drop-shadow(0 0 5px rgba(135, 206, 250, 0.25)); */
+}
+
+#background img {
+    max-width: 75%;
+    max-height: 75%;
+    transform: translate(-25%, 50%);
+    opacity: 0.25;
+    filter: drop-shadow(0 0 10px lightskyblue);
+    position: absolute;
+    bottom: 0;
 }
 
 input, input::placeholder, textarea, textarea::placeholder {
@@ -26,8 +52,11 @@ input, input::placeholder, textarea, textarea::placeholder {
     display: none;
 }
 .page-header {
-    padding: 8px;
+    padding: 4px;
     margin-bottom: 30px;
+    /* height: 50px; */
+    border-bottom: solid 1px lightskyblue;
+    width: calc(100% - 49px);
 }
 .page-header h1 {
     font-family: 'QuantumFH';
@@ -35,12 +64,20 @@ input, input::placeholder, textarea, textarea::placeholder {
     text-align: center;
     letter-spacing: 0.3rem;
     font-weight: lighter;
-    text-shadow: 0 -3px 3px rgba(255, 255, 255, 0.5);
+    /* text-shadow: 0 -3px 3px rgba(255, 255, 255, 0.5); */
 }
 
 
 section {
-
+    background-color: #ffffff05;
+    margin-bottom: 80px;
+    width: 90%;
+    max-width: 500px;
+    margin-inline: auto;
+    border-radius: 12px;
+    border: solid 1px #fff;
+    backdrop-filter: blur(10px);
+    position: relative;
 }
 .section-header {
 
@@ -86,6 +123,7 @@ section {
     width: 30%;
     text-align: right;
     padding-right: 10px;
+    color: lightskyblue;
 }
 .input-group input, .input-group textarea {
     width: 70%;
