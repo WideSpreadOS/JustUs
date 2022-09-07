@@ -1,18 +1,38 @@
 <style>
+
     #menuOpenBtn {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: solid 1px lightskyblue;
-        border-right: none;
-        border-top: none;
-        box-shadow: inset 0 0 30px rgba(135, 206, 250, 0.4), -4px 4px 8px rgba(0, 0, 0, 0.4);
-        font-size: 2rem;
         position: fixed;
         top: 0;
-        right: 0;
-        padding: 8px;
-        padding-top: 0;
-        padding-bottom: 0;
-        border-bottom-left-radius: 8px;
+        left: calc(100vw - 100px);
+        margin-inline: auto;
+        font-size: 1.5rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #222;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -50px;
+        z-index: 80000;
+        transform: translate(25px, -25px);
+        transition: ease-in-out 1s;
+    }
+    #menuOpenBtn i {
+        margin-inline: auto;
+        padding: 10px;
+        font-size: 2rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: lightskyblue;
+        box-shadow: inset 2px 2px 4px rgb(204, 236, 255), inset -2px -2px 4px rgb(88, 176, 231);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     #mainMenu {
         position: absolute;
@@ -23,6 +43,7 @@
         height: 100vh;
         transition: ease-in-out 0.75s;
         z-index: 99999;
+        overflow-x: hidden;
     }
     .menu-options {
         display: flex;
@@ -32,12 +53,99 @@
         justify-content: flex-end;
         height: 50px;
     }
+
     #closeMenuBtn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #222;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -50px;
+        z-index: 80000;
+        transform: translate(25px, -25px);
+        transition: ease-in-out 1s;
+    }
+    #closeMenuBtn i {
+        margin-inline: auto;
+        padding: 10px;
         font-size: 2rem;
-        margin-right: 15px;
-        color: lightskyblue;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: lightskyblue;
+        box-shadow: inset 2px 2px 4px rgb(204, 236, 255), inset -2px -2px 4px rgb(88, 176, 231);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-options {
+        background-color: #ffffff05;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+    }
+    #searchContainer {
+        width: 100%;
+        padding: 8px;
+        position: relative;
+    }
+    #searchContainer input {
+        width: 80%;
+        outline: none;
+        border: none;
+        padding: 5px;
+        max-width: 240px;
+        background-color: #222;
+        border-radius: 6px;
+        color: #fff;
+        box-shadow: 3px 3px 6px #333, -3px -3px 6px #000;
     }
 
+    #searchContainer button {
+        outline: none;
+        border: none;
+        position: absolute;
+        top: 30px;
+        right: 60px;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #222;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -50px;
+        z-index: 80000;
+        transform: translate(25px, -25px);
+        transition: ease-in-out 1s;
+    }
+    #searchContainer button i {
+        margin-inline: auto;
+        padding: 10px;
+        font-size: 2rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: lightskyblue;
+        box-shadow: inset 2px 2px 4px rgb(204, 236, 255), inset -2px -2px 4px rgb(88, 176, 231);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
     .menu-nav {
         height: calc(100vh - 50px);
     }
@@ -65,6 +173,12 @@
 
 <div id="mainMenu">
     <div class="menu-options">
+        <div id="searchContainer">
+            <form action="" method="post">
+                <input type="search" name="search_query" id="searchInput" placeholder="Search...">
+                <button type="submit"><i class="bx bx-search-alt"></i></button>
+            </form>
+        </div>
         <div id="closeMenuBtn">
             <i class="bx bx-x"></i>
         </div>
@@ -92,9 +206,13 @@
     menuOpenBtn.addEventListener('click', e => {
         console.log('open menu')
         mainMenu.style.left = '0'
+        closeMenuBtn.style.left = 'calc(100vw - 100px)'
+        menuOpenBtn.style.transform = 'translate(100px, -100px)'
     })
     closeMenuBtn.addEventListener('click', e => {
         console.log('open menu')
         mainMenu.style.left = '-100vw'
+        closeMenuBtn.style.left = '0'
+        menuOpenBtn.style.transform = 'translate(25px, -25px)'
     })
 </script>
