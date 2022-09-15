@@ -7,14 +7,17 @@
     <title>JustUs Management Consulting</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script defer src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
     <script src="/logic/main.js" defer></script>
 </head>
 <body>
-    <%- include('./partials/menus/main'); %>
-    <%- body %>
-
     <div id="background" style="background-image: url('/images/background_transparent.png');">
         <img src="/images/lady-justice_2.png" alt="">
     </div>
+    <%- include('./partials/menus/main'); %>
+    <main id="swup" class="transition-fade">
+        <%- body %>
+    </main>
+
 </body>
 </html>

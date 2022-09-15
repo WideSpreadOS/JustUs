@@ -201,7 +201,7 @@
     const menuOpenBtn = document.getElementById('menuOpenBtn')
     const closeMenuBtn = document.getElementById('closeMenuBtn')
     const mainMenu = document.getElementById('mainMenu')
-
+    const menuItems = document.querySelectorAll('li')
 
     menuOpenBtn.addEventListener('click', e => {
         console.log('open menu')
@@ -214,5 +214,13 @@
         mainMenu.style.left = '-100vw'
         closeMenuBtn.style.left = '0'
         menuOpenBtn.style.transform = 'translate(25px, -25px)'
+    })
+    
+    menuItems.forEach(menuItem => {
+        menuItem.addEventListener('click', e => {
+            mainMenu.style.left = '-100vw'
+            closeMenuBtn.style.left = '0'
+            menuOpenBtn.style.transform = 'translate(25px, -25px)'
+        })
     })
 </script>

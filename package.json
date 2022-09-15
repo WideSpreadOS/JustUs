@@ -32,7 +32,8 @@
     "mongoose": "^6.5.2",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "swup": "^2.0.19"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
